@@ -7,6 +7,7 @@ matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 from matplotlib import animation
 import random
+from timeit import timeit
 
 # Deliberately terrible code for teaching purposes
 
@@ -42,12 +43,12 @@ def update_boids(boids):
 		xs[i]=xs[i]+xvs[i]
 		ys[i]=ys[i]+yvs[i]
 
-
+		
+		
 figure=plt.figure()
 axes=plt.axes(xlim=(-500,1500), ylim=(-500,1500))
 scatter=axes.scatter(boids[0],boids[1])
 
-%%timeit
 
 def animate(frame):
    update_boids(boids)
