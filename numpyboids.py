@@ -12,7 +12,7 @@ boids_y_positions = np.array([random.uniform(300.0,600.0) for x in range(50)])
 boid_x_velocities = np.array([random.uniform(0,10.0) for x in range(50)])
 boid_y_velocities = np.array([random.uniform(-20.0,20.0) for x in range(50)])
 boids=(boids_x_positions,boids_y_positions,boid_x_velocities,boid_y_velocities)
-print boids_x_positions
+
 
 def update_boids(boids):
 	xs,ys,xvs,yvs=boids
@@ -34,9 +34,10 @@ def update_boids(boids):
 	# Fly away from nearby boids
 	for i in range(len(xs)):
 		for j in range(len(xs)):
-			if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < 100:
-				xvs[i] += (xs[i]-xs[j])
-				yvs[i] += (ys[i]-ys[j])
+			if boid_distance[i, j] < 10:
+				xvs[i] += x_pos_differences[i, j]
+				yvs[i] += y_pos_differences[i,j]
+				
 	# Try to match speed with nearby boids
 	for i in range(len(xs)):
 		for j in range(len(xs)):
