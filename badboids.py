@@ -16,7 +16,7 @@ boid_x_velocities=[random.uniform(0,10.0) for x in range(50)]
 boid_y_velocities=[random.uniform(-20.0,20.0) for x in range(50)]
 badboids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
 
-def update_boids(boids):
+def update_badboids(boids):
 	xs,ys,xvs,yvs=badboids
 	# Fly towards the middle
 	for i in range(len(xs)):
@@ -50,7 +50,7 @@ scatter=axes.scatter(badboids[0],badboids[1])
 
 
 def animate(frame):
-   update_boids(badboids)
+   update_badboids(badboids)
    scatter.set_offsets(zip(badboids[0],badboids[1]))
 
 

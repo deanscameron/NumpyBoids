@@ -1,14 +1,14 @@
 import timeit
-from badboids import update_boids, badboids
-import random
+from badboids import update_badboids, badboids
 
 def wrapper(func, *args):
     def wrapped():
         return func(*args)
     return wrapped
-badboids_original = wrapper(update_boids, badboids)
+	
+badboids_original = wrapper(update_badboids, badboids)
 
-time_badboids = timeit.timeit(badboids_original, number=1000)
+time_badboids = timeit.timeit(badboids_original, number=500)
 
 print 'Original bad boids time was ' +str(time_badboids)
 print 'My class based bad boids time was ' 
