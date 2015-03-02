@@ -8,9 +8,7 @@ matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 from matplotlib import animation
 import random
-import config
 import yaml
-from boids_functions import update_vel, dist_check
 config=yaml.load(open("config.yml"))
 from math import hypot
 
