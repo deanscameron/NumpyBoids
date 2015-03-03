@@ -17,5 +17,6 @@ time_numpyboids = timeit.repeat(numpyboids, repeat=20, number=100)
 print 'Original bad boids time was ' +str(np.mean(time_badboids))
 print 'My Numpy bad boids time is ' +str(np.mean(time_numpyboids))
 
-# Original bad boids time was 1.43 seconds for 100 iterations 
-# My Numpy bad boids time is 0.95 seconds for 100 iterations 
+# Original bad boids time was 1.43 (0.62) seconds for 100 iterations 
+# My Numpy bad boids time is 0.95 (0.43) seconds for 100 iterations
+# Bracketed times when charging
