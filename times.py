@@ -14,5 +14,4 @@ time_badboids = timeit.timeit(badboids_original, number=500)
 time_numpyboids = timeit.timeit(numpyboids, number=500)
 
 print 'Original bad boids time was ' +str(time_badboids)
-print 'My class based bad boids time was ' 
 print 'My Numpy bad boids time is ' +str(time_numpyboids)
