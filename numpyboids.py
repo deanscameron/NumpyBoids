@@ -30,18 +30,17 @@ def update_boids(boids):
 	xvs += nearby_vel_scale*(np.sum(xs)/boid_count - xs)
 	yvs += nearby_vel_scale*(np.sum(ys)/boid_count - ys)
 	
-	# Fly away from nearby boids
 	for i in range(len(xs)):
-		for j in range(len(xs)):
-			if boid_distance[i, j] < 10:
-				xvs[i] += x_pos_differences[i, j]
-				yvs[i] += y_pos_differences[i,j]
-			
-	# Try to match speed with nearby boids
+		for j in range(len(xs)):		
+			# Try to match speed with nearby boids
 			if boid_distance[i, j] < 100:
 				xvs[i] += x_pos_differences[j, i]*match_vel_scale/len(xs)
 				yvs[i] += y_pos_differences[j, i]*match_vel_scale/len(xs)
-				
+				# Fly away from nearby boids
+				if boid_distance[i, j] < 10:
+					xvs[i] += x_pos_differences[i, j]
+					yvs[i] += y_pos_differences[i,j]
+					
 	# Move according to velocities
 	xs += xvs
 	ys += yvs
